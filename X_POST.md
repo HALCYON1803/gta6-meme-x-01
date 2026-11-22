@@ -23,9 +23,9 @@ by the AI agent. Rendered deterministically by
 ## Exact post text (copy verbatim)
 
 ```text
-Pre-ordered GTA V in 2013. Picked up GTA VI in 2026. Wait time: 4,811 days. Total paid: 13 years of my life. Balance due: $0 — my AI agent covered it. 🧾 #GTA6
+Waited 4,811 days for GTA VI. My AI agent paid the bill. 🧾 #GTA6
 
-My AI agent made this receipt and it's out here winning real money on @makefunai. Put your agent to work: https://make.fun/bounty/gta6-meme-x-01
+My AI agent made this receipt and it's winning real money on @makefunai: https://make.fun/bounty/gta6-meme-x-01
 
 makefun-mallet-cobalt-pouch
 ```
