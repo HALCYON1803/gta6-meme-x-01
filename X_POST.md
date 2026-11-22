@@ -1,12 +1,17 @@
 # X post — gta6-meme-x-01
 
-## Status: NOT POSTED YET (v2 receipt ready, 22/11)
+## Status: NOT POSTED YET (v3 dense receipt ready, 22/11)
 
 No connected X posting route was available to the agent, so this post
-has **not** been published. The v2 meme (pre-order receipt) replaces
-the v1 WANTED-poster ghost, which the user judged too weak against the
-leaderboard leaders — all fake official documents itemising the
-4,811-day wait. The meme and the exact post text below are ready.
+has **not** been published. The v3 meme replaces the v2 receipt: v2
+scored judge 0.7633 (#819) — a sparse white receipt with exactly one
+joke — while the leaders are all dense fake documents. V3 keeps the
+pre-order receipt but packs it like the leaders: 6 itemised joke
+lines totalling $2,026 (late fee, broken promises, Jason & Lucia,
+214 GB download, alligator cleaning, 13 years of patience), a drawn
+ghost mascot + alligator, a "13 YEARS LATE" stamp, and a magenta
+"PAID BY MY AI AGENT — make.fun" footer. The meme and the exact post
+text below are ready.
 The user posts it from a public X account, then `POST.json`
 is updated with the real post URL and the entry is resubmitted before
 the deadline **23/11/2026 21:00 +07**.
@@ -14,10 +19,11 @@ the deadline **23/11/2026 21:00 +07**.
 ## Image to attach
 
 `meme.png` in this repo (1024×1024 PNG) — attach it as the post's
-**first (and only) picture**. V2 (22/11): a "VICE CITY GAMES —
+**first (and only) picture**. V3 (22/11): a dense "VICE CITY GAMES —
 PRE-ORDER RECEIPT" — pre-ordered GTA V in 2013, picked up GTA VI in
-2026, 4,811 days, paid with 13 years of your life, balance $0 covered
-by the AI agent. Rendered deterministically by
+2026, 4,811 days, 6 itemised lines totalling $2,026, ghost mascot +
+alligator, "13 YEARS LATE" stamp, magenta "PAID BY MY AI AGENT"
+footer. Rendered deterministically by
 `tools/render_receipt.py` (re-render is byte-identical).
 
 ## Exact post text (copy verbatim)

@@ -11,18 +11,26 @@
 // placeholder URL is not a real post, so the gate refuses it as it
 // stands. Replace it with the real post address before submitting.
 //
-// Meme v2 (22/11): "VICE CITY GAMES — PRE-ORDER RECEIPT". The v1
-// WANTED-poster ghost was vague next to the leaderboard leaders, who
-// are all fake official documents itemising the 4,811-day wait with an
-// AI-agent-pays punchline. V2 joins that winning genre with a
-// GTA-native document: pre-ordered GTA V in 2013, picked up GTA VI in
-// 2026. The receipt is rendered deterministically by
-// tools/render_receipt.py (PIL, DejaVu Sans Mono); two runs are
+// Meme v3 (22/11): "VICE CITY GAMES — PRE-ORDER RECEIPT", dense edition.
+// V2 (judge 0.7633, #819) was a sparse white mono-type receipt with
+// exactly ONE joke (the 4,811 days). The leaders are all DENSE fake
+// documents: a dark header bar, 5-7 itemised joke lines with prices,
+// specific GTA details (Jason & Lucia, 214 GB, alligator, Fall 2025 /
+// May 2026, $59.99-$2,026), a drawn illustration (ghost mascot,
+// alligator, mugshot), a big red stamp, and a magenta footer "PAID BY
+// MY AI AGENT / make.fun". V3 keeps the pre-order receipt (a different
+// document from the leaders' rental / funeral / booking papers) but
+// adopts every one of those levers: 6 itemised lines totalling $2,026,
+// a drawn ghost mascot + alligator, a "13 YEARS LATE" stamp, and the
+// magenta agent-pays footer. V3 is rendered deterministically by
+// tools/render_receipt.py (PIL, DejaVu Sans + Sans Mono); two runs are
 // byte-identical. The spec below is the single source of truth for
 // the receipt's text — the renderer and the X post text both follow it.
 
 // The receipt's text, line by line. The renderer draws these exact
 // strings; X_POST.md quotes the same beats in the post text.
+// The six itemised lines sum to the $2,026 total due (1300 + 26 +
+// 137 + 214 + 250 + 99 = 2026); the $59.99 deposit was paid in 2013.
 const MEME_SPEC = {
   store: 'VICE CITY GAMES',
   address: 'OCEAN DRIVE  •  VICE CITY, LEONIDA',
@@ -33,6 +41,15 @@ const MEME_SPEC = {
     ['PRE-ORDERED', 'GTA V  —  17 SEP 2013'],
     ['PICKED UP', 'GTA VI  —  26 MAY 2026'],
   ],
+  items: [
+    ['Late fee: 13 years overdue', '$1,300'],
+    ['Promised: Fall 2025, May 2026', '$26'],
+    ['Unlisted drivers: Jason & Lucia', '$137'],
+    ['Download: 214 GB, hotel Wi-Fi', '$214'],
+    ['Cleaning: alligator, back seat', '$250'],
+    ['Patience: 13 yrs, non-refundable', '$99'],
+  ],
+  totalDue: '$2,026',
   waitTime: '4,811 DAYS',
   totals: [
     ['TOTAL PAID', '13 YEARS OF MY LIFE'],
@@ -40,7 +57,8 @@ const MEME_SPEC = {
   ],
   paidBy: 'PAID BY MY AI AGENT',
   bounty: 'MAKE.FUN BOUNTY',
-  stamp: 'PAID',
+  stamp: '13 YEARS LATE',
+  footer: 'PAID BY MY AI AGENT — make.fun',
 };
 
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -78,11 +96,11 @@ if (typeof post !== 'object' || post === null || typeof post.url !== 'string') {
 // the entry does not need changed. Validation above still rejects a
 // malformed file before anything is written.
 //
-// Note for the resubmission: the judged artifacts are meme.png (the v2
-// receipt, rendered from MEME_SPEC by tools/render_receipt.py) and the
-// X post text in X_POST.md. This copy step is unchanged since v1 — the
-// gate still needs POST.json at /output/POST.json, and only the post
-// URL inside it changes once the user publishes the post on X.
+// Note for the resubmission: the judged artifacts are meme.png (the v3
+// dense receipt, rendered from MEME_SPEC by tools/render_receipt.py) and
+// the X post text in X_POST.md. This copy step is unchanged since v1 —
+// the gate still needs POST.json at /output/POST.json, and only the post
+// URL inside it changes once the user publishes the v3 post on X.
 mkdirSync(OUTPUT_DIR, { recursive: true });
 try {
   writeFileSync(target, text, 'utf8');
